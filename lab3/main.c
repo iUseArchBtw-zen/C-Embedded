@@ -36,10 +36,10 @@
 #define PERIOD_TICKS    ((TIM4_CLK_HZ + PWM_FREQ_HZ / 2) / PWM_FREQ_HZ)   /* 3819 */
 #define DUTY_TO_CCR(p)  ((PERIOD_TICKS * (p) + 50) / 100)
 
-#define DUTY_RED        33   /* PD14, CH3 */
-#define DUTY_GREEN      88   /* PD12, CH1 */
-#define DUTY_ORANGE     22   /* PD13, CH2 */
-#define DUTY_BLUE       50   /* PD15, CH4 */
+#define DUTY_RED        33   
+#define DUTY_GREEN      88   
+#define DUTY_ORANGE     22   
+#define DUTY_BLUE       50   
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -101,10 +101,10 @@ int main(void)
   __HAL_TIM_SET_PRESCALER(&htim4, 0);
   __HAL_TIM_SET_AUTORELOAD(&htim4, PERIOD_TICKS - 1);
 
-  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, DUTY_TO_CCR(DUTY_GREEN));   /* 3361 */
-  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, DUTY_TO_CCR(DUTY_ORANGE));  /*  840 */
-  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, DUTY_TO_CCR(DUTY_RED));     /* 1260 */
-  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, DUTY_TO_CCR(DUTY_BLUE));    /* 1910 */
+  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, DUTY_TO_CCR(DUTY_GREEN));   
+  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, DUTY_TO_CCR(DUTY_ORANGE));  
+  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, DUTY_TO_CCR(DUTY_RED));    
+  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, DUTY_TO_CCR(DUTY_BLUE));    
 
   htim4.Instance->EGR = TIM_EGR_UG;
 
